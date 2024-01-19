@@ -1,0 +1,21 @@
+CREATE TABLE cadastropacientes(
+    id SERIAL PRIMARY KEY,
+    idade INT NOT NULL,
+    nome VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    telefone VARCHAR(20),
+    cpf VARCHAR(14) NOT NULL,
+    notaobservacao VARCHAR(255),
+    tipoconsulta VARCHAR(255),
+    valorconsulta FLOAT,
+    diarecorrencia VARCHAR(255),
+    logradouro VARCHAR(255),
+    bairro VARCHAR(255),
+    cidade VARCHAR(255),
+    estado VARCHAR(255),
+    uf VARCHAR(4),
+    numero INT,
+    cep VARCHAR(10),
+    complemento VARCHAR(255),
+    ativo BOOLEAN
+)
