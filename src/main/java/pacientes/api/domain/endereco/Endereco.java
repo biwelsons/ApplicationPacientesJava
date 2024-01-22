@@ -20,6 +20,7 @@ public class Endereco {
         this.complemento = dados.complemento();
         this.numero = dados.numero();
         this.uf = dados.uf();
+        this.estado = dados.estado();
     }
 
 
