@@ -74,6 +74,10 @@ public class Paciente {
             this.diaRecorrencia = dados.diaRecorrencia();
         }
 
+        if (dados.idade() != 0) {
+            this.idade = dados.idade();
+        }
+
     }
 
     public void excluir() {

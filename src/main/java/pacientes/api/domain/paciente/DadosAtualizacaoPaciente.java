@@ -6,6 +6,7 @@ import pacientes.api.domain.endereco.DadosEndereco;
 public record DadosAtualizacaoPaciente(
         @NotNull
         Long id,
+        int idade,
         String nome,
         String telefone,
         DadosEndereco endereco,

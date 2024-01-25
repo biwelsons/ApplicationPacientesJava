@@ -1,6 +1,5 @@
 package pacientes.api.controller;
 
-import jakarta.el.PropertyNotFoundException;
 import jakarta.validation.Valid;
 import pacientes.api.domain.paciente.*;
 
@@ -48,24 +47,9 @@ public class PacienteController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<DadosListagemPaciente> buscarPorId(@PathVariable Long id) {
-        try {
-            logger.info("Recebendo solicitação para buscar paciente pelo ID: {}", id);
-
-            // Busque o paciente pelo ID no repositório
-            Paciente paciente = repository.findById(id)
-                    .orElseThrow();
-
-            // Retorne os dados do paciente
-            DadosListagemPaciente dadosPaciente = new DadosListagemPaciente(paciente);
-            return ResponseEntity.ok(dadosPaciente);
-        } catch (PropertyNotFoundException e) {
-            logger.warn("Paciente não encontrado pelo ID: {}", id);
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        } catch (Exception e) {
-            logger.error("Erro ao buscar paciente pelo ID: {}", id, e);
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
+    public ResponseEntity<DadosDetalhamentoPaciente> detalhar(@PathVariable Long id){
+        var paciente = repository.getReferenceById(id);
+        return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     @PutMapping
